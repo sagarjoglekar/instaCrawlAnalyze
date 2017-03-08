@@ -15,16 +15,16 @@ import cPickle
 import multiprocessing as mp
 
 
-root = "/datasets/sagarj/vineData/Dataset/"
+root = "/datasets/sagarj/instaSample6000/"
 
-post_dir = root + "savedPosts/"
-videos_dir = root + "Videos/"
+post_dir = root + "meta/"
+videos_dir = root + "videos/"
 frame_dir = root + "faces/"
 
 frontal_face_cascade = cv2.CascadeClassifier('../haarcascades/haarcascade_frontalface_default.xml')
 profile_face_cascade = cv2.CascadeClassifier('../haarcascades/haarcascade_profileface.xml')
 
-faceNumber = "../Logs/popularFaceCounts.pk"
+faceNumber = "../Logs/instaFaceCounts.pk"
 
 
 def process_frontal(frame):
@@ -43,6 +43,7 @@ def process_profile(frame):
     return len(eyes)
 
 def processVideo(videoPath , facesPath , postID , pool):
+    print "Working with %s" %videoPath
     cap = cv2.VideoCapture(videoPath)
     totFrames = 0
     flaggedFrames = 0
@@ -86,16 +87,16 @@ def getPosts(postsDir):
     posts = []
     for post in crawledPosts:
         record = readJson(postsDir + post)
-        p = record['data']
-        if isinstance(p,dict):
-            posts.append(p['records'][0])
+        #p = record['data']
+        if isinstance(record,dict):
+            posts.append(record)
     return posts
 
 def getMappingDict(postList):
     mapping = dict()
     for p in postList:
-        postId = p['postId']
-        vidName = p['videoUrl'].split('/')[5].split('?')[0]
+        postId = p['meta']['Meta']['media']['code']
+        vidName = postId
         mapping[postId] = vidName
     return mapping
 
@@ -110,5 +111,5 @@ if __name__ == '__main__':
     for k in mappingDict: 
         postID = k
         print "Processing video %s" %(str(k))
-        processVideo(videos_dir+mappingDict[k] ,frame_dir , postID ,pool)
+        processVideo(videos_dir+mappingDict[k]+".mp4" ,frame_dir , postID ,pool)
     print "Done Counting faces from %d Videos" %(len(mappingDict.keys()))
