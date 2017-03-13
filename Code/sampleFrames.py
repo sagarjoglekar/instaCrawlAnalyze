@@ -1,5 +1,3 @@
-#####SIMPLE UTILITY TO SAMPLE A LIST OF VIDEOS AT THEIR FRAM RATES INTO A KNOWN FOLDER #####################
-
 import re
 import datetime as dt
 from datetime import datetime
@@ -9,7 +7,6 @@ import json
 import sys
 import requests
 import os
-import wget
 import pickle
 import cv2
 import numpy as np
@@ -17,12 +14,12 @@ import cPickle
 import multiprocessing as mp
 import math
 
-root = "/datasets/sagarj/instaLongVidSamples/"
+root = "/datasets/sagarj/instaSample6000/"
 
 # post_dir = root + "/"
 videos_dir = root + "videos/"
 #frame_dir = root + "AestheticSamples/"
-sample_dir = root + "frameSamples/"
+sample_dir = root + "finesamples/"
 
 sampledLog = "../Logs/instaLongSampling.txt"
 

@@ -27,3 +27,14 @@ Logs/instaLongSampling.txt
 Logs/instaSampledThirdsFaces.pk
 Logs/instaSampling.txt
 Logs/vineVidPaths.txt
+Logs/aesthetic_median_sampled.csv
+Logs/insta6000AesMedian.csv
+Logs/insta6000_ANPs.pk
+Logs/insta6000_probs.csv
+Logs/insta6000SampledAesthetic.csv
+Logs/insta6000SampledAesthetic_df.csv
+Logs/instaFaceCounts.pk
+Logs/Insta_features_sampled_ordered.csv
+Logs/instaMedianSenti.csv
+Logs/instaPop_audio.csv
+Logs/instaSample6000stats.json
