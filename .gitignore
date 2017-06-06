@@ -38,3 +38,6 @@ Logs/Insta_features_sampled_ordered.csv
 Logs/instaMedianSenti.csv
 Logs/instaPop_audio.csv
 Logs/instaSample6000stats.json
+Notebooks/.ipynb_checkpoints/CrawlInsta-checkpoint.ipynb
+Notebooks/.ipynb_checkpoints/FeatureCollateAndClassifier-checkpoint.ipynb
+Notebooks/.ipynb_checkpoints/InstaGraph-checkpoint.ipynb
